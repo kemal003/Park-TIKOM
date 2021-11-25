@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "148852149800",
+    "project_id": "park-tikom",
+    "storage_bucket": "park-tikom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148852149800:android:c27a1a3337289cb84b6f1d",
+        "android_client_info": {
+          "package_name": "com.example.park_tikom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148852149800-a6utdi0v226d49o1i3e6a166bdrv205f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW-7K0mAB-tZI79hMz_pODBI2Tl2_M1DI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148852149800-a6utdi0v226d49o1i3e6a166bdrv205f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
