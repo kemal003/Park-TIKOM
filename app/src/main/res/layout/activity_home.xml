@@ -62,6 +62,61 @@
             android:layout_marginTop="15dp"
             app:srcCompat="@drawable/parktikom_full" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/rounded_shadow"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="40dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:srcCompat="@drawable/p_tok_hdpi" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pesan Parkir"
+                    android:textColor="#003152"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:srcCompat="@drawable/pesanan_iki_hdpi" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pesanan"
+                    android:textColor="#003152"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="match_parent"

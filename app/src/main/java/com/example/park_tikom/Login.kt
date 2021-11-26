@@ -22,7 +22,6 @@ import com.google.firebase.ktx.Firebase
 
 class Login : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var auth: FirebaseAuth
     private var doubleBackExit = false;
 
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -35,7 +34,6 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        auth = Firebase.auth
         mAuth = FirebaseAuth.getInstance()
     }
 
@@ -46,13 +44,8 @@ class Login : AppCompatActivity() {
         if(currentUser != null){
             updateUI(currentUser)
         }
-//        findViewById<Button>(R.id.loginButton).setOnClickListener(){
-//            val email = findViewById<EditText>(R.id.email).text.toString()
-//            val password = findViewById<EditText>(R.id.password).text.toString()
-//            signIn(email, password)
-//        }
-        googleLoginRequest()
 
+        googleLoginRequest()
         findViewById<Button>(R.id.googleLogIn).setOnClickListener(){
             signIn()
         }
@@ -62,24 +55,6 @@ class Login : AppCompatActivity() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
-
-//    private fun signIn(email: String, password: String){
-//        auth.signInWithEmailAndPassword(email, password)
-//            .addOnCompleteListener(this) { task ->
-//                if (task.isSuccessful) {
-//                    // Sign in success, update UI with the signed-in user's information
-//                    Log.d(TAG, "signInWithEmail:success")
-//                    val user = auth.currentUser
-//                    updateUI(user)
-//                } else {
-//                    // If sign in fails, display a message to the user.
-//                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-//                    Toast.makeText(baseContext, "Authentication failed.",
-//                        Toast.LENGTH_SHORT).show()
-////                    updateUI(null)
-//                }
-//            }
-//    }
 
     private fun updateUI(user: FirebaseUser?){
         val home = Intent(this, Home::class.java)
@@ -123,7 +98,7 @@ class Login : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
+                    val user = mAuth.currentUser
                     updateUI(user)
 
                 } else {
