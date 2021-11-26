@@ -86,6 +86,7 @@ class Login : AppCompatActivity() {
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
+                Log.w(TAG, "signInWithCredential:failure", task.exception)
                 Toast.makeText(this, "Email yang digunakan salah, silahkan gunakan Email UB", Toast.LENGTH_SHORT).show()
             }
         }
