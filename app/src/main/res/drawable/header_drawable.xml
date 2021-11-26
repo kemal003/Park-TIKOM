@@ -5,8 +5,8 @@
         android:angle="270"
         android:startColor="#195A86"
         android:endColor="#003152" />
-<!--    <corners-->
-<!--        android:bottomLeftRadius="10dp"-->
-<!--        android:bottomRightRadius="10dp">-->
-<!--    </corners>-->
+    <corners
+        android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp">
+    </corners>
 </shape>
