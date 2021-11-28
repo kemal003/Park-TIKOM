@@ -11,8 +11,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:elevation="20dp"
         android:background="@drawable/header_drawable"
+        android:elevation="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -21,9 +21,9 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_gravity="center_vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
 
@@ -43,7 +43,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
-        android:layout_height="668dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
@@ -66,10 +66,10 @@
             android:layout_width="match_parent"
             android:layout_height="116dp"
             android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:padding="20dp"
             android:background="@drawable/rounded_shadow"
-            android:orientation="horizontal" >
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="20dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -88,10 +88,10 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pesan Parkir"
-                    android:textColor="#003152"
                     android:fontFamily="@font/poppins_regular"
-                    android:textSize="12sp"/>
+                    android:text="Pesan Parkir"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -110,28 +110,62 @@
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pesanan"
-                    android:textColor="#003152"
                     android:fontFamily="@font/poppins_regular"
-                    android:textSize="12sp"/>
+                    android:text="Pesanan"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOGOUT" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="Copyright @ KELOMPOK 10 - RPL E 2021"
-            android:textAlignment="center"
-            android:textColor="#808080"
-            android:textSize="8sp" />
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Pengumuman Parkiran"
+            android:textColor="@color/blue" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPengumuman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"
+            />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGOUT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Copyright @ KELOMPOK 10 - RPL E 2021"
+        android:textAlignment="center"
+        android:textColor="#808080"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoutButton"
+        tools:layout_editor_absoluteX="40dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
