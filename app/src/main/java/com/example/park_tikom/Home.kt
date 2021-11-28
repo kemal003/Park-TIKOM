@@ -5,9 +5,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.auth.api.Auth
@@ -15,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
@@ -29,11 +34,12 @@ class Home : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var pengumumanArrayList : ArrayList<Pengumuman>
     private lateinit var pengumumanRecyclerView: RecyclerView
+    lateinit var toggle : ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
+        supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.drawable.header_drawable))
         pengumumanArrayList = arrayListOf()
 
         pengumumanRecyclerView = findViewById(R.id.recyclerPengumuman)
@@ -52,6 +58,23 @@ class Home : AppCompatActivity() {
 
         findViewById<Button>(R.id.logoutButton).setOnClickListener(){
             logOut()
+        }
+
+        //NAVBAR TOK IKI BRO
+        val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
+        val navView : NavigationView = findViewById(R.id.nav_view)
+
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nav_logout -> logOut()
+            }
+            true
         }
     }
 
@@ -126,21 +149,12 @@ class Home : AppCompatActivity() {
 //        }
 //    }
 
-//    private fun lastPengumumanFinder() : Int{
-//        var lastId = 1
-//        var isLast = false
-//        var tempId = "nonull"
-//        do {
-//            database.child("Pengumuman").child(lastId.toString()).child("id").get().addOnSuccessListener {
-//                tempId = it.value.toString()
-//            }
-//            if (tempId.equals("null")){
-//                isLast = false
-//            } else {
-//                lastId += 1
-//            }
-//            Timer().schedule(2000)
-//        }while(!isLast)
-//        return lastId
-//    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (toggle.onOptionsItemSelected(item)){
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 }

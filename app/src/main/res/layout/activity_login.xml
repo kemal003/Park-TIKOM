@@ -8,43 +8,17 @@
     tools:context=".Login">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:elevation="20dp"
-        android:background="@drawable/header_drawable"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Login"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="668dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:orientation="vertical"
         android:padding="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
@@ -58,8 +32,8 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
             android:layout_marginStart="4dp"
+            android:layout_marginTop="70dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Selamat Datang, silahkan masuk menggunakan akun UB"
             android:textColor="@color/black"
