@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkTIKOM">
         <activity
-            android:name=".DetailLokasi"
-            android:exported="false" />
-        <activity
             android:name=".PilihLokasi"
             android:exported="false" />
         <activity
