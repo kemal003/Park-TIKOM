@@ -37,8 +37,8 @@ class Home : AppCompatActivity() {
         pengumumanArrayList = arrayListOf()
 
         pengumumanRecyclerView = findViewById(R.id.recyclerPengumuman)
-        pengumumanRecyclerView.layoutManager = LinearLayoutManager(this)
-        pengumumanRecyclerView.setHasFixedSize(true)
+        pengumumanRecyclerView.layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.HORIZONTAL, false)
 
         googleLoginRequest()
         getListPengumuman()
@@ -64,14 +64,6 @@ class Home : AppCompatActivity() {
         }.addOnFailureListener{
             Log.d("Create", "Failedd")
         }
-        val id = 4
-        val pengumuman = Pengumuman("iniFoto1", "iniJudul1", "iniTanggal2", "iniIsi1", id)
-//        database.child("Pengumuman").child(id.toString()).setValue(pengumuman)
-        database.child("Pengumuman").child("4").child("id").get().addOnSuccessListener {
-            println("=====================${it.value}=====================")
-        }
-//        println("=====================${lastPengumumanFinder()}================")
-//        println("==============================$key===========================")
     }
 
     private fun reload() {
