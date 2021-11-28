@@ -2,19 +2,23 @@ package com.example.park_tikom
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -31,10 +35,12 @@ class Home : AppCompatActivity() {
     private lateinit var namaUser: String
     private lateinit var emailUser: String
     private lateinit var id: String
+    private lateinit var pp: Uri
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var pengumumanArrayList : ArrayList<Pengumuman>
     private lateinit var pengumumanRecyclerView: RecyclerView
     lateinit var toggle : ActionBarDrawerToggle
+    private lateinit var viewModel : ItemViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +60,7 @@ class Home : AppCompatActivity() {
             namaUser = signInAccount.displayName
             emailUser = signInAccount.email
             id = signInAccount.id
+            pp = signInAccount.photoUrl
         }
 
         findViewById<Button>(R.id.logoutButton).setOnClickListener(){
@@ -76,6 +83,14 @@ class Home : AppCompatActivity() {
             }
             true
         }
+
+        //VIEW MODEL
+        viewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
+        viewModel.getSelectedItem().observe(this, {
+
+
+
+        })
     }
 
     override fun onStart() {
@@ -87,6 +102,10 @@ class Home : AppCompatActivity() {
         }.addOnFailureListener{
             Log.d("Create", "Failedd")
         }
+        val inflatedView = layoutInflater.inflate(R.layout.nav_header, null)
+        val nama : TextView = inflatedView.findViewById(R.id.username)
+        println(namaUser)
+        nama.text = namaUser
     }
 
     private fun reload() {

@@ -1,7 +1,5 @@
 package com.example.park_tikom
 
-
-
 data class Pengumuman(
     var foto : String = "",
     var judul : String = "",

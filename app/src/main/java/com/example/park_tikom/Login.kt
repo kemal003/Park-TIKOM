@@ -25,7 +25,6 @@ import com.google.firebase.ktx.Firebase
 class Login : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private var doubleBackExit = false;
-
     private lateinit var googleSignInClient: GoogleSignInClient
 
     companion object {
