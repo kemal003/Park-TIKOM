@@ -63,10 +63,6 @@ class Home : AppCompatActivity() {
             pp = signInAccount.photoUrl
         }
 
-        findViewById<Button>(R.id.logoutButton).setOnClickListener(){
-            logOut()
-        }
-
         //NAVBAR TOK IKI BRO
         val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
         val navView : NavigationView = findViewById(R.id.nav_view)

@@ -116,30 +116,22 @@
                 android:id="@+id/recyclerPengumuman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbars="horizontal"
-                />
+                android:scrollbars="horizontal" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOGOUT"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-            tools:layout_editor_absoluteX="40dp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="227dp"
+            android:layout_marginBottom="80dp"
             android:text="Copyright @ KELOMPOK 10 - RPL E 2021"
             android:textAlignment="center"
             android:textColor="#808080"
             android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logoutButton"
-            tools:layout_editor_absoluteX="40dp" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            tools:layout_editor_absoluteX="1dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     
