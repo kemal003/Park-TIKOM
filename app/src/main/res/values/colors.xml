@@ -9,7 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#003152</color>
     <color name="gray">#776F6F</color>
-    <color name="testing">
 
-    </color>
+    <color name="blue001">#FFF2FAFF</color>
+    <color name="blue011">#57195A86</color>
+    <color name="blue002">#FF3A9EE1</color>
+    <color name="blue003">#FF195A86</color>
+    <color name="blue004">#FF003152</color>
+
+    <color name="yellow001">#FFFBE9C2</color>
+    <color name="yellow002">#FFFDC673</color>
+    <color name="yellow003">#FFFFAD31</color>
+    <color name="yellow004">#FFEA8B00</color>
 </resources>
