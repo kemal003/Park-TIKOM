@@ -9,10 +9,11 @@
     android:paddingTop="20dp"
     tools:context=".ProfilActivity">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -23,13 +24,16 @@
         android:textSize="20sp"
         android:fontFamily="@font/poppins_semibold"
         android:textStyle="bold"
+        android:textColor="@color/blue003"
         android:textAlignment="center"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="email"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/blue003"
+        android:textStyle="italic"
         android:textAlignment="center"/>
 
     <ImageView

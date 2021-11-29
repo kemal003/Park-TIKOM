@@ -5,73 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue001"
+    android:padding="15dp"
     tools:context=".PesanActivity"
     android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_regular"
             android:text="Detail Lokasi Parkir"
             android:textAlignment="center"
-            android:textColor="@color/blue004"
+            android:textColor="@color/blue003"
             android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="81dp" />
+            android:textStyle="bold"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center"
-                android:src="@drawable/parkir_belakang"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/parkir_belakang" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginHorizontal="15dp"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Deskripsi :"
             android:textAlignment="textStart"
             android:textColor="@color/blue003"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Parkiran Belakang FILKOM ini terletak di belakang Gedung A dan biasa digunakan oleh mahasiswa."
             android:textAlignment="textStart"
             android:textColor="@color/blue003"
-            android:textSize="15sp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="81dp" />
+            android:textSize="15sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="Tanggal:"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@color/blue003"
-            android:fontFamily="@font/poppins_regular"
-            android:layout_marginHorizontal="15dp"/>
+            android:fontFamily="@font/poppins_semibold"/>
 
         <EditText
             android:id="@+id/inpDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginHorizontal="15dp"
             android:background="@drawable/rounded_shadow"
             android:drawableStart="@drawable/ic_calendar"
             android:drawablePadding="10dp"
             android:ems="10"
             android:fontFamily="@font/poppins_regular"
+            android:textSize="15sp"
             android:hint="Tanggal"
             android:inputType="date"
             android:minHeight="45dp"
@@ -84,22 +78,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="Waktu:"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@color/blue003"
-            android:fontFamily="@font/poppins_regular"
-            android:layout_marginHorizontal="15dp"/>
+            android:fontFamily="@font/poppins_semibold"/>
 
         <EditText
             android:id="@+id/inpWaktu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginHorizontal="15dp"
             android:background="@drawable/rounded_shadow"
             android:drawableStart="@drawable/ic_clock"
             android:drawablePadding="10dp"
             android:ems="10"
             android:fontFamily="@font/poppins_regular"
+            android:textSize="15sp"
             android:hint="Waktu"
             android:inputType="date"
             android:minHeight="45dp"
