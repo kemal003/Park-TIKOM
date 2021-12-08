@@ -17,7 +17,9 @@ class DetailLokasiActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         binding.pesanButton.setOnClickListener {
+            val lokPar = intent.getStringExtra("lokPar")
             val intent = Intent(this, PesanActivity::class.java)
+            intent.putExtra("lokPar", lokPar)
             startActivity(intent)
         }
     }

@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkTIKOM">
         <activity
+            android:name=".InfoPesananActivity"
+            android:exported="false" />
+        <activity
             android:name=".PesanActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".DetailLokasiActivity"
             android:exported="false" />

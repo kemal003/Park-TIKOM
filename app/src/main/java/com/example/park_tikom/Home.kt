@@ -95,7 +95,7 @@ class Home : AppCompatActivity() {
         }
 
         binding.pesanParkir.setOnClickListener {
-            val intent = Intent(this, PesanActivity::class.java)
+            val intent = Intent(this, PilihLokasi::class.java)
             startActivity(intent)
             finish()
         }
