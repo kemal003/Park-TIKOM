@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue001"
-    android:padding="15dp"
+    android:padding="30dp"
     tools:context=".PesanActivity"
     android:orientation="vertical">
 
@@ -67,7 +67,7 @@
             android:fontFamily="@font/poppins_regular"
             android:textSize="15sp"
             android:hint="Tanggal"
-            android:inputType="date"
+            android:focusable="false"
             android:minHeight="45dp"
             android:paddingHorizontal="10dp"
             android:textColorHint="@color/blue011"
@@ -94,7 +94,7 @@
             android:fontFamily="@font/poppins_regular"
             android:textSize="15sp"
             android:hint="Waktu"
-            android:inputType="date"
+            android:focusable="false"
             android:minHeight="45dp"
             android:paddingHorizontal="10dp"
             android:textColorHint="@color/blue011"

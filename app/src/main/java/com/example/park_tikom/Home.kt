@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.park_tikom.databinding.ActivityHomeBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -33,10 +34,12 @@ class Home : AppCompatActivity() {
     private lateinit var pengumumanRecyclerView: RecyclerView
     lateinit var toggle : ActionBarDrawerToggle
     private lateinit var viewModel : ItemViewModel
+    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.drawable.header_drawable))
         pengumumanArrayList = arrayListOf()
 
@@ -90,6 +93,13 @@ class Home : AppCompatActivity() {
         }.addOnFailureListener{
             Log.d("Create", "Failedd")
         }
+
+        binding.pesanParkir.setOnClickListener {
+            val intent = Intent(this, PesanActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         val inflatedView = layoutInflater.inflate(R.layout.nav_header, null)
         val nama : TextView = inflatedView.findViewById(R.id.username)
         println(namaUser)
