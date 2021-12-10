@@ -4,15 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_detail_lokasi.xml" value="0.1564102564102564" />
-        <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_detail_lokasi2.xml" value="0.1564102564102564" />
-        <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_detail_pesanan.xml" value="0.1641025641025641" />
+        <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_detail_lokasi2.xml" value="0.33" />
+        <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_detail_pesanan.xml" value="0.25" />
         <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_home.xml" value="0.16880341880341881" />
         <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_info_pesanan.xml" value="0.1641025641025641" />
         <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_pesan.xml" value="0.33" />
         <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/activity_pilih_lokasi.xml" value="0.5" />
+        <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/fragment_q_r_code.xml" value="0.16111111111111112" />
         <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/nav_header.xml" value="0.20982905982905983" />
         <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/pengumuman.xml" value="0.16880341880341881" />
-        <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/pesanan.xml" value="0.1641025641025641" />
+        <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/pesanan.xml" value="0.33" />
         <entry key="..\:/KULIAH/Semester 5/Rekayasa Perangkat Lunak/Park-TIKOM/app/src/main/res/layout/popup_qrcode.xml" value="0.1641025641025641" />
         <entry key="..\:/Users/asus/Documents/GitHub/Park-TIKOM/app/src/main/res/drawable/header_drawable.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/asus/Documents/GitHub/Park-TIKOM/app/src/main/res/drawable/ic_calendar.xml" value="0.19166666666666668" />

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,16 +20,19 @@
         android:fontFamily="@font/poppins_semibold"
         android:textColor="@color/blue004"
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ic_calendar"/>
+            android:src="@drawable/ic_calendar" />
 
         <TextView
+            android:id="@+id/tanggalPesanan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -51,16 +55,18 @@
             android:src="@drawable/ic_clock"/>
 
         <TextView
+            android:id="@+id/waktuPesanan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
             android:layout_gravity="center"
+            android:layout_marginStart="10dp"
             android:text="00.00 WIB"
             android:textAlignment="center"
             android:textColor="#195A86"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/durasiPesanan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -81,6 +87,7 @@
             android:src="@drawable/location"/>
 
         <TextView
+            android:id="@+id/lokasiPesanan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
@@ -101,6 +108,7 @@
             android:src="@drawable/ic_status"/>
 
         <TextView
+            android:id="@+id/isCheckedIn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
@@ -110,10 +118,12 @@
             android:textStyle="bold" />
 
     </LinearLayout>
+
     <ImageView
+        android:id="@+id/lihatQRButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:src="@drawable/ic_buttonqr"/>
+        android:src="@drawable/ic_buttonqr" />
 </LinearLayout>
 </RelativeLayout>

@@ -20,4 +20,6 @@
     <color name="yellow002">#FFFDC673</color>
     <color name="yellow003">#FFFFAD31</color>
     <color name="yellow004">#FFEA8B00</color>
+
+    <color name="black80">#99000000</color>
 </resources>

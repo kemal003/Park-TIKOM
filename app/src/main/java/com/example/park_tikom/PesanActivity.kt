@@ -25,11 +25,13 @@ class PesanActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, T
     private lateinit var savedDate : String
     private lateinit var savedTime : String
     private lateinit var endTime : String
+    private lateinit var lokPar : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPesanBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        lokPar = intent.getStringExtra("lokPar").toString()
         try {
             currentUser = FirebaseAuth.getInstance().currentUser!!
         } catch (e: Exception){
@@ -56,17 +58,31 @@ class PesanActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, T
         }
 
         binding.pesanButtonFinal.setOnClickListener {
-            val lokPar = intent.getStringExtra("lokPar")
-            databaseRef = FirebaseDatabase.getInstance().getReference("LokasiParkir/$lokPar/token")
-            val newToken = databaseRef.push()
-            val newTokenID = newToken.key
-            newToken.setValue(Token(newTokenID!!, savedDate, savedTime, endTime, currentUser.uid))
-            println(newTokenID)
+            pushNewToken()
+            incKuota()
+            val intent = Intent(this, DetailPesananActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun pushNewToken(){
+        databaseRef = FirebaseDatabase.getInstance().getReference("Token")
+        val newToken = databaseRef.push()
+        val newTokenID = newToken.key
+        newToken.setValue(Token(newTokenID!!, savedDate, savedTime, endTime, lokPar, false, currentUser.uid))
+        println(newTokenID)
+    }
+
+    private fun incKuota(){
+        databaseRef = FirebaseDatabase.getInstance().getReference("LokasiParkir").child(lokPar).child("terpakai")
+        databaseRef.get().addOnSuccessListener {
+            val nowTerpakai : Long = it.value as Long
+            databaseRef.setValue(nowTerpakai + 1)
         }
     }
 
     override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-        savedDate = "$p3-$p2-$p3"
+        savedDate = "$p3-$p2-$p1"
         binding.inpDate.setText("$p3-$p2-$p1")
     }
 

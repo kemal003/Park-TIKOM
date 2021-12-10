@@ -100,6 +100,12 @@ class Home : AppCompatActivity() {
             finish()
         }
 
+        binding.pesananList.setOnClickListener {
+            val intent = Intent(this, DetailPesananActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         val inflatedView = layoutInflater.inflate(R.layout.nav_header, null)
         val nama : TextView = inflatedView.findViewById(R.id.username)
         println(namaUser)

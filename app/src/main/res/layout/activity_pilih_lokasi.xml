@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Parkiran Belakang FILKOM"
+                android:text="Parkiran Depan FILKOM"
                 android:fontFamily="@font/poppins_semibold"
                 android:textSize="15dp"
                 android:textColor="@color/blue003"/>
@@ -40,6 +40,7 @@
                     android:layout_height="15dp"
                     android:src="@drawable/motor"/>
                 <TextView
+                    android:id="@+id/kuotaParkir1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -61,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="Jl. UB 10"
+                    android:text="Depan Gedung E"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="10dp"
                     android:textColor="@color/blue003"/>
@@ -90,7 +91,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Parkiran Depan FILKOM"
+                android:text="Parkiran Belakang FILKOM"
                 android:fontFamily="@font/poppins_semibold"
                 android:textSize="15dp"
                 android:textColor="@color/blue003"/>
@@ -104,6 +105,7 @@
                     android:layout_height="15dp"
                     android:src="@drawable/motor"/>
                 <TextView
+                    android:id="@+id/kuotaParkir2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -125,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="Jl. UB 10"
+                    android:text="Belakang Gedung A"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="10dp"
                     android:textColor="@color/blue003"/>
