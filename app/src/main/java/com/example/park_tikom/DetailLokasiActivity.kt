@@ -3,6 +3,7 @@ package com.example.park_tikom
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.content.res.AppCompatResources
 import com.bumptech.glide.Glide
 import com.example.park_tikom.databinding.ActivityDetailLokasi2Binding
 import com.google.firebase.database.DatabaseReference
@@ -22,6 +23,14 @@ class DetailLokasiActivity : AppCompatActivity() {
         binding.deskripsiLokasi.text = detailLokasi!!.deskripsi
         binding.kutoaDetailLokasi.text = "${detailLokasi.terpakai} / ${detailLokasi.kuota} Motor"
         Glide.with(binding.root).load(detailLokasi.imageUrl).into(binding.gambarDetailParkir)
+
+        supportActionBar?.title = "Detail Lokasi Parkir"
+        supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.drawable.header_drawable))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onStart() {

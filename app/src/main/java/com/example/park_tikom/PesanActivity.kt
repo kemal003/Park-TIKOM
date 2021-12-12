@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.TimePicker
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.DialogFragment
 import com.example.park_tikom.databinding.ActivityPesanBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +39,14 @@ class PesanActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, T
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
+        supportActionBar?.title = "Pesan Parkir"
+        supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.drawable.header_drawable))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onStart() {

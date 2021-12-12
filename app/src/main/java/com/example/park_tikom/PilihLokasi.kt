@@ -23,6 +23,11 @@ class PilihLokasi : AppCompatActivity() {
 
         supportActionBar?.title = "Pilih Lokasi Parkir"
         supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.drawable.header_drawable))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onStart() {
