@@ -3,6 +3,7 @@ package com.example.park_tikom
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Adapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.park_tikom.databinding.ActivityDetailPesananBinding
@@ -19,6 +20,7 @@ class DetailPesananActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailPesananBinding
     private lateinit var databaseReference: DatabaseReference
     private lateinit var currentUser: FirebaseUser
+    private lateinit var pesananAdapter: AdapterPesanan
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,11 +30,13 @@ class DetailPesananActivity : AppCompatActivity() {
         currentUser = Firebase.auth.currentUser!!
 
         pesananArrayList = arrayListOf()
+        pesananAdapter = AdapterPesanan()
         pesananRecyclerView = binding.pesananRecyclerView
         pesananRecyclerView.layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.VERTICAL, false
         )
         getListPesanan()
+        pesananRecyclerView.adapter = pesananAdapter
     }
 
     private fun getListPesanan(){
@@ -46,7 +50,8 @@ class DetailPesananActivity : AppCompatActivity() {
                             pesananArrayList.add(pesanan)
                         }
                     }
-                    pesananRecyclerView.adapter = AdapterPesanan(pesananArrayList)
+                    pesananAdapter.setAllData(pesananArrayList)
+                    pesananArrayList.clear()
                 }
             }
 

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
 import android.widget.TimePicker
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.DialogFragment
 import com.example.park_tikom.databinding.ActivityPesanBinding
@@ -56,7 +57,10 @@ class PesanActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, T
             val day = cal.get(Calendar.DAY_OF_MONTH)
             val month = cal.get(Calendar.MONTH)
             val year = cal.get(Calendar.YEAR)
-            DatePickerDialog(this, this, year, month, day).show()
+            val datePickerDialog = DatePickerDialog(this, this, year, month, day)
+            datePickerDialog.datePicker.minDate = System.currentTimeMillis() - 1000
+            datePickerDialog.datePicker.maxDate = System.currentTimeMillis() + 86400000
+            datePickerDialog.show()
         }
 
         binding.inpWaktu.setOnClickListener {
@@ -67,10 +71,14 @@ class PesanActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, T
         }
 
         binding.pesanButtonFinal.setOnClickListener {
-            pushNewToken()
-            incKuota()
-            val intent = Intent(this, DetailPesananActivity::class.java)
-            startActivity(intent)
+            try{
+                pushNewToken()
+                incKuota()
+                val intent = Intent(this, DetailPesananActivity::class.java)
+                startActivity(intent)
+            } catch (e: Exception){
+                Toast.makeText(this, "Data yang dimasukkan tidak valid", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -91,13 +99,19 @@ class PesanActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, T
     }
 
     override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-        savedDate = "$p3-$p2-$p1"
-        binding.inpDate.setText("$p3-$p2-$p1")
+        savedDate = "$p3-${p2+1}-$p1"
+        binding.inpDate.setText("$p3-${p2+1}-$p1")
     }
 
     override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
-        savedTime = "$p1:$p2"
-        endTime = "${p1+1}:$p2"
-        binding.inpWaktu.setText("$p1:$p2")
+        if ((p1 >= 17) && (p2 > 0)){
+            binding.inpWaktu.setText("Maksimal pemesanan pukul 17:00")
+        } else if (p1 < 5){
+            binding.inpWaktu.setText("Minimal pemesanan pukul 5:00")
+        } else {
+            savedTime = "$p1:$p2"
+            endTime = "${p1+1}:$p2"
+            binding.inpWaktu.setText("$p1:$p2")
+        }
     }
 }

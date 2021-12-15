@@ -18,8 +18,8 @@ class DetailLokasiActivity : AppCompatActivity() {
         binding = ActivityDetailLokasi2Binding.inflate(layoutInflater)
         setContentView(binding.root)
         lokPar = intent.getStringExtra("lokPar").toString()
-
         val detailLokasi = intent.getSerializableExtra("detailLokasi") as? LokasiParkir
+
         binding.deskripsiLokasi.text = detailLokasi!!.deskripsi
         binding.kutoaDetailLokasi.text = "${detailLokasi.terpakai} / ${detailLokasi.kuota} Motor"
         Glide.with(binding.root).load(detailLokasi.imageUrl).into(binding.gambarDetailParkir)

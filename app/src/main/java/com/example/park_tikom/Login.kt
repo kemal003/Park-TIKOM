@@ -42,9 +42,9 @@ class Login : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = mAuth.currentUser
+        val currentUser = GoogleSignIn.getLastSignedInAccount(this)
         if(currentUser != null){
-            updateUI(currentUser)
+            updateUI()
         }
 
         googleLoginRequest()
@@ -58,7 +58,7 @@ class Login : AppCompatActivity() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
-    private fun updateUI(user: FirebaseUser?){
+    private fun updateUI(){
         val home = Intent(this, Home::class.java)
         startActivity(home)
     }
@@ -102,7 +102,7 @@ class Login : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = mAuth.currentUser
-                    updateUI(user)
+                    updateUI()
 
                 } else {
                     // If sign in fails, display a message to the user.

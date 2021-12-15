@@ -3,6 +3,7 @@ package com.example.park_tikom
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.park_tikom.databinding.ActivityPilihLokasiBinding
 import com.google.firebase.database.DatabaseReference
@@ -53,17 +54,25 @@ class PilihLokasi : AppCompatActivity() {
         }
 
         binding.parkir1.setOnClickListener {
-            val intent = Intent(this, DetailLokasiActivity::class.java)
-            intent.putExtra("lokPar", "parkir1")
-            intent.putExtra("detailLokasi", lokasi1 as Serializable)
-            startActivity(intent)
+            if (lokasi1.terpakai == lokasi1.kuota){
+                Toast.makeText(this, "Maaf, kuota tempat parkir ini sudah penuh", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, DetailLokasiActivity::class.java)
+                intent.putExtra("lokPar", "parkir1")
+                intent.putExtra("detailLokasi", lokasi1 as Serializable)
+                startActivity(intent)
+            }
         }
 
         binding.parkir2.setOnClickListener {
-            val intent = Intent(this, DetailLokasiActivity::class.java)
-            intent.putExtra("lokPar", "parkir2")
-            intent.putExtra("detailLokasi", lokasi2 as Serializable)
-            startActivity(intent)
+            if (lokasi2.terpakai == lokasi2.kuota){
+                Toast.makeText(this, "Maaf, kuota tempat parkir ini sudah penuh", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, DetailLokasiActivity::class.java)
+                intent.putExtra("lokPar", "parkir2")
+                intent.putExtra("detailLokasi", lokasi2 as Serializable)
+                startActivity(intent)
+            }
         }
     }
 }

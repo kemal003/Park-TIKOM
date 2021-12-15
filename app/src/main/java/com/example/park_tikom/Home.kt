@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.drawerlayout.widget.DrawerLayout
@@ -18,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
@@ -31,10 +33,12 @@ class Home : AppCompatActivity() {
     private lateinit var pp: Uri
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var pengumumanArrayList : ArrayList<Pengumuman>
+    private lateinit var pesananArrayList: ArrayList<Token>
     private lateinit var pengumumanRecyclerView: RecyclerView
     lateinit var toggle : ActionBarDrawerToggle
     private lateinit var viewModel : ItemViewModel
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var currentUser : FirebaseUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +46,7 @@ class Home : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.drawable.header_drawable))
         pengumumanArrayList = arrayListOf()
+        pesananArrayList = arrayListOf()
 
         pengumumanRecyclerView = findViewById(R.id.recyclerPengumuman)
         pengumumanRecyclerView.layoutManager = LinearLayoutManager(
@@ -49,6 +54,7 @@ class Home : AppCompatActivity() {
 
         googleLoginRequest()
         getListPengumuman()
+        getListPesanan()
 
         val signInAccount = GoogleSignIn.getLastSignedInAccount(this)
         if (signInAccount != null){
@@ -57,6 +63,9 @@ class Home : AppCompatActivity() {
             id = signInAccount.id
             pp = signInAccount.photoUrl
         }
+
+        currentUser = Firebase.auth.currentUser!!
+
 
         //NAVBAR TOK IKI BRO
         val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
@@ -87,17 +96,22 @@ class Home : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         database = FirebaseDatabase.getInstance().getReference("Users")
-        val user = Users(id, namaUser, emailUser)
-        database.child(id).setValue(user).addOnSuccessListener {
+        val user = Users(id, namaUser, emailUser, currentUser.uid)
+        database.child(currentUser.uid).setValue(user).addOnSuccessListener {
             Log.d("Create", "Succesfully")
         }.addOnFailureListener{
             Log.d("Create", "Failedd")
         }
 
         binding.pesanParkir.setOnClickListener {
-            val intent = Intent(this, PilihLokasi::class.java)
-            startActivity(intent)
-            finish()
+            println(pesananArrayList.size)
+            if (pesananArrayList.size > 1){
+                Toast.makeText(this, "Maaf, Token yang anda buat sudah melebihi limit", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this, PilihLokasi::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
 
         binding.pesananList.setOnClickListener {
@@ -145,8 +159,28 @@ class Home : AppCompatActivity() {
                         val pengumuman = pengumSnapshot.getValue(Pengumuman::class.java)
                         pengumumanArrayList.add(pengumuman!!)
                     }
-
                     pengumumanRecyclerView.adapter = AdapterPengumuman(pengumumanArrayList.reversed() as ArrayList<Pengumuman>)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    private fun getListPesanan(){
+        database = FirebaseDatabase.getInstance().getReference("Token")
+        database.addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for (pesananSnapshot in snapshot.children){
+                        val pesanan = pesananSnapshot.getValue(Token::class.java)
+                        if (pesanan!!.owner.equals(currentUser.uid)){
+                            pesananArrayList.add(pesanan)
+                        }
+                    }
                 }
             }
 

@@ -16,8 +16,11 @@ import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
-class AdapterPesanan(private val listPesanan: ArrayList<Token>):
+class AdapterPesanan(
+//    private val listPesanan: ArrayList<Token>
+    ):
     RecyclerView.Adapter<AdapterPesanan.ListViewHolder>() {
+    val listPesanan: ArrayList<Token> = ArrayList()
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val tanggalPesanan : TextView = itemView.findViewById(R.id.tanggalPesanan)
@@ -26,6 +29,12 @@ class AdapterPesanan(private val listPesanan: ArrayList<Token>):
         val lokasiPesanan : TextView = itemView.findViewById(R.id.lokasiPesanan)
         val isCheckedIn : TextView = itemView.findViewById(R.id.isCheckedIn)
         val lihatButton : ImageView = itemView.findViewById(R.id.lihatQRButton)
+    }
+
+    fun setAllData(data: List<Token>){
+        listPesanan.clear()
+        listPesanan.addAll(data)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
