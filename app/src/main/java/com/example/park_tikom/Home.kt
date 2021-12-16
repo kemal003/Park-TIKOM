@@ -105,7 +105,7 @@ class Home : AppCompatActivity() {
 
         binding.pesanParkir.setOnClickListener {
             println(pesananArrayList.size)
-            if (pesananArrayList.size > 1){
+            if (cekPesanan()){
                 Toast.makeText(this, "Maaf, Token yang anda buat sudah melebihi limit", Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, PilihLokasi::class.java)
@@ -124,6 +124,10 @@ class Home : AppCompatActivity() {
         val nama : TextView = inflatedView.findViewById(R.id.username)
         println(namaUser)
         nama.text = namaUser
+    }
+
+    private fun cekPesanan() : Boolean{
+        return pesananArrayList.size > 1
     }
 
     private fun reload() {

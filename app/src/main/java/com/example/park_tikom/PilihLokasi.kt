@@ -54,7 +54,7 @@ class PilihLokasi : AppCompatActivity() {
         }
 
         binding.parkir1.setOnClickListener {
-            if (lokasi1.terpakai == lokasi1.kuota){
+            if (cekKuota(lokasi1.terpakai, lokasi1.kuota)){
                 Toast.makeText(this, "Maaf, kuota tempat parkir ini sudah penuh", Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, DetailLokasiActivity::class.java)
@@ -65,7 +65,7 @@ class PilihLokasi : AppCompatActivity() {
         }
 
         binding.parkir2.setOnClickListener {
-            if (lokasi2.terpakai == lokasi2.kuota){
+            if (cekKuota(lokasi2.terpakai, lokasi2.kuota)){
                 Toast.makeText(this, "Maaf, kuota tempat parkir ini sudah penuh", Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, DetailLokasiActivity::class.java)
@@ -74,5 +74,9 @@ class PilihLokasi : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+    }
+
+    private fun cekKuota(terpakai: Long, kuota: Long) : Boolean {
+        return terpakai >= kuota
     }
 }
