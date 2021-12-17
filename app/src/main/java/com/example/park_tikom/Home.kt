@@ -1,19 +1,23 @@
 package com.example.park_tikom
 
 import android.content.Intent
+import android.media.Image
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.park_tikom.databinding.ActivityHomeBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -23,6 +27,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import org.w3c.dom.Text
 
 
 class Home : AppCompatActivity() {
@@ -45,6 +50,8 @@ class Home : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.drawable.header_drawable))
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         pengumumanArrayList = arrayListOf()
         pesananArrayList = arrayListOf()
 
@@ -70,6 +77,11 @@ class Home : AppCompatActivity() {
         //NAVBAR TOK IKI BRO
         val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
         val navView : NavigationView = findViewById(R.id.nav_view)
+        val headerNav = navView.getHeaderView(0)
+        val userPhoto = headerNav.findViewById<ImageView>(R.id.user_photos)
+        Glide.with(this).load(pp).into(userPhoto)
+        headerNav.findViewById<TextView>(R.id.nama_user).text = namaUser
+        headerNav.findViewById<TextView>(R.id.email_user).text = emailUser
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -80,6 +92,7 @@ class Home : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.nav_logout -> logOut()
+                R.id.nav_qrcode -> pesanan()
             }
             true
         }
@@ -119,11 +132,6 @@ class Home : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
-        val inflatedView = layoutInflater.inflate(R.layout.nav_header, null)
-        val nama : TextView = inflatedView.findViewById(R.id.username)
-        println(namaUser)
-        nama.text = namaUser
     }
 
     private fun cekPesanan() : Boolean{
@@ -141,6 +149,12 @@ class Home : AppCompatActivity() {
             reload()
             finish()
         }
+    }
+
+    private fun pesanan(){
+        val intent = Intent(this, DetailPesananActivity::class.java)
+        startActivity(intent)
+        this.finish()
     }
 
     private fun googleLoginRequest(){
@@ -163,7 +177,7 @@ class Home : AppCompatActivity() {
                         val pengumuman = pengumSnapshot.getValue(Pengumuman::class.java)
                         pengumumanArrayList.add(pengumuman!!)
                     }
-                    pengumumanRecyclerView.adapter = AdapterPengumuman(pengumumanArrayList.reversed() as ArrayList<Pengumuman>)
+                    pengumumanRecyclerView.adapter = AdapterPengumuman(applicationContext, pengumumanArrayList.reversed() as ArrayList<Pengumuman>)
                 }
             }
 

@@ -123,7 +123,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="227dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="80dp"
             android:text="Copyright @ KELOMPOK 10 - RPL E 2021"
             android:textAlignment="center"

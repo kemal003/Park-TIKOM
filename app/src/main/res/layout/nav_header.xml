@@ -5,28 +5,33 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="25dp"
         android:background="@color/white">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_photos"
             android:layout_width="120dp"
-            android:layout_height="120dp" />
+            android:layout_height="120dp"
+            android:layout_marginStart="25dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username"
+            android:id="@+id/nama_user"
             android:paddingTop="10dp"
-            android:textSize="20sp"
+            android:textSize="14sp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
             android:text="Testin Gan"
             android:textColor="@android:color/black"
             android:fontFamily="@font/poppins_semibold" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/email_user"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="11sp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
             android:text="Testing Gais"
             android:fontFamily="@font/poppins_regular"
             android:textColor="@color/gray" />
@@ -34,7 +39,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="30dp" />
+            android:background="@color/gray"
+            android:layout_marginTop="15dp" />
 
 
     </LinearLayout>
